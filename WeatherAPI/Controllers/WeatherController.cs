@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using WeatherAPI.Controllers;
 
 namespace WeatherAPI.Controllers
 {
@@ -19,7 +20,7 @@ namespace WeatherAPI.Controllers
                 try
                 {
                     client.BaseAddress = new Uri("http://api.openweathermap.org");
-                    var response = await client.GetAsync($"/data/2.5/weather?q={city}&appid={APIKey}&units=metric");
+                    var response = await client.GetAsync($"/data/2.5/weather?q={city}&appid={ApiKeys.ApiKey}&units=metric");
                     response.EnsureSuccessStatusCode();
 
                     var stringResult = await response.Content.ReadAsStringAsync();
