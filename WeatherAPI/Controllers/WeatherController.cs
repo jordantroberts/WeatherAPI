@@ -11,7 +11,7 @@ namespace WeatherAPI.Controllers
     public class WeatherController : Controller
     {
         [HttpGet("[action]/{city}")] 
-        public IActionResult City(string city)
+        public async Task<IActionResult> City(string city)
         {
             return Ok(new { Temp = "12", Summary = "Barmy", City = city });
         }
