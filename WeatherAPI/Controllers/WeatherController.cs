@@ -29,8 +29,8 @@ namespace WeatherAPI.Controllers
                     {
                         Temp = rawWeather.Main.Temp,
                         City = rawWeather.Name,
-                        Summary = rawWeather.Description
-                    });
+                        Summary = rawWeather.Weather.Select(x => x.Description)
+                    }); 
                 }
                 catch (HttpRequestException httpRequestException)
                 {
@@ -47,6 +47,7 @@ namespace WeatherAPI.Controllers
         public string Name { get; set; }
         public string Description { get; set; }
         public Main Main { get; set; }
+        public IEnumerable<WeatherDescription> Weather { get; set; }
     }
 
     public class Main
@@ -54,4 +55,8 @@ namespace WeatherAPI.Controllers
         public string Temp { get; set; }
     }
 
+    public class WeatherDescription
+    {
+        public string Description { get; set; }
+    }
 }
