@@ -19,14 +19,14 @@ namespace WeatherAPI.Controllers
                 try
                 {
                     client.BaseAddress = new Uri("http://api.openweathermap.org");
-                    var response = await client.GetAsync($"/data/2.5/weather?q={city}&appid=APIKEY&units=metric");
+                    var response = await client.GetAsync($"/data/2.5/weather?q={city}&appid={APIKey}&units=metric");
                     response.EnsureSuccessStatusCode();
 
                     var stringResult = await response.Content.ReadAsStringAsync();
                     var rawWeather = JsonConvert.DeserializeObject<OpenWeatherResponse>(stringResult);
                     return Ok(new
                     {
-                        Temp = rawWeather.Temp,
+                        Temp = rawWeather.Main.Temp,
                         City = rawWeather.Name,
                         Summary = rawWeather.Description
                     });
@@ -44,8 +44,13 @@ namespace WeatherAPI.Controllers
     public class OpenWeatherResponse
     {
         public string Name { get; set; }
-        public string Temp { get; set; }
         public string Description { get; set; }
+        public Main Main { get; set; }
+    }
+
+    public class Main
+    {
+        public string Temp { get; set; }
     }
 
 }
