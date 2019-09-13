@@ -19,10 +19,15 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <h1>Weather</h1>
-        <p>City: {this.state.city}</p>
-        <p>Temperature: {this.state.temp}</p>
-        <p>Description: {this.state.summary}</p>
+        <center>
+          <h1>Weather</h1>
+          <h4>City</h4>
+          <p>{this.state.city}</p>
+          <h4>Temperature</h4>
+          <p> {this.state.temp}</p>
+          <h4>Description</h4>
+          <p> {this.state.summary}</p>
+        </center>
       </div>
     );
   }
