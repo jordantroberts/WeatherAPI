@@ -27,11 +27,11 @@ export class Home extends Component {
   render() {
     let decision = "";
     if (Math.floor(this.state.temp) > 18.0) {
-      decision = "Yes";
+      decision = "Yes! Go get those arms out!";
     } else if (this.state.temp == "") {
       decision = "";
     } else {
-      decision = "No";
+      decision = "No way, you don't want to catch a cold!";
     }
 
     return (
