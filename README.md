@@ -4,8 +4,10 @@ An app that fetches data from <a href="https://openweathermap.org/api">OpenWeath
 I created this as a .NET application with C# on the backend and React on the frontend, as those are the areas where I would like to practice and my aim was to make an API call on the backend and get the React frontend to chat to the backend. 
 
 ## How to run this app 
+Visit: https://isittshirtweather.azurewebsites.net 
 
 ## How to use this app
+Type in the city of your choice and press submit to fetch data about the weather in that city, and see whether or not you should brave wearing a t-shirt! 
 
 Visit https://isittshirtweather.azurewebsites.net/ and enter a city. When you click submit, you'll be shown all the info :) 
 
