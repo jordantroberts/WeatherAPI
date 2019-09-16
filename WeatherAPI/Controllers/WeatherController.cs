@@ -29,6 +29,7 @@ namespace WeatherAPI.Controllers
                     {
                         Temp = rawWeather.Main.Temp,
                         Temp_Min = rawWeather.Main.Temp_Min,
+                        Temp_Max = rawWeather.Main.Temp_Max,
                         City = rawWeather.Name,
                         Summary = rawWeather.Weather.Select(x => x.Description)
                     }); 
@@ -55,6 +56,7 @@ namespace WeatherAPI.Controllers
     {
         public string Temp { get; set; }
         public string Temp_Min { get; set; }
+        public string Temp_Max { get; set; }
     }
 
     public class WeatherDescription
