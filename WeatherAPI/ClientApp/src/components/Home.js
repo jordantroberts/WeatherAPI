@@ -13,7 +13,7 @@ export class Home extends Component {
 
   getData(e) {
     e.preventDefault();
-    fetch("api/weather/city/" + this.state.location)
+      fetch("api/weather/city/" + this.state.location )
       .then(response => response.json())
       .then(data =>
         this.setState({
