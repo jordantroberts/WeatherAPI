@@ -4,7 +4,8 @@ export class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      temp: "",
+        temp: "",
+        temp_min: "",
       summary: "",
       city: "",
       location: ""
@@ -17,7 +18,8 @@ export class Home extends Component {
       .then(response => response.json())
       .then(data =>
         this.setState({
-          temp: data.temp,
+              temp: data.temp,
+              temp_min: data.temp_Min,
           summary: data.summary,
           city: data.city
         })
@@ -53,9 +55,11 @@ export class Home extends Component {
             <button type="submit">Submit</button>
           </form>
           <h4>City</h4>
-          <p>{this.state.city}</p>
+                <p>{this.state.city}</p>
+              
           <h4>Temperature</h4>
-          <p> {this.state.temp}</p>
+                <p>Current: {this.state.temp}</p>
+                <p>Minimum: {this.state.temp_min}</p>
           <h4>Description</h4>
           <p> {this.state.summary}</p>
           <h4>Is it T-Shirt weather?</h4>
